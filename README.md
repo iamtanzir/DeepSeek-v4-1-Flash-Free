@@ -224,6 +224,24 @@ Official links:
 
 ---
 
+## 💻 DeepSeek-Coder — Full Free (Same Setup)
+
+Same free stack, code-focused model. Copy-paste:
+
+```bash
+chmod +x scripts/coder-setup.sh
+./scripts/coder-setup.sh deepseek-coder:6.7b-instruct
+# Open WebUI http://localhost:3000 -> model deepseek-coder:6.7b-instruct
+```
+
+- Official: https://github.com/deepseek-ai/DeepSeek-Coder
+- Library: https://huggingface.co/deepseek-ai/deepseek-coder-6.7b-instruct
+- Integrations (client side): https://github.com/deepseek-ai/awesome-deepseek-integration
+
+Details: `configs/deepseek-coder.md`
+
+---
+
 ## 🧱 Project Structure
 
 ```text
