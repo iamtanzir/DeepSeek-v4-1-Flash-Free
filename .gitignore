@@ -1,0 +1,14 @@
+# Ollama models
+ollama-models/
+# Open WebUI data
+open-webui/
+# env secrets
+.env
+# cloudflare token
+*.token
+# rclone config
+.rclone.conf
+# system
+.DS_Store
+Thumbs.db
+*.log

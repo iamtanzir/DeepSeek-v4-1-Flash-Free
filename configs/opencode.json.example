@@ -1,0 +1,11 @@
+{
+  "providers": {
+    "my-deepseek": {
+      "baseURL": "http://localhost:11434/v1",
+      "apiKey": "ollama",
+      "model": "deepseek-v4.1-flash",
+      "name": "DeepSeek-V4.1-Flash (Free Lifetime)"
+    }
+  },
+  "model": "my-deepseek/deepseek-v4.1-flash"
+}

@@ -1,0 +1,17 @@
+# Cloudflare Tunnel - Permanent Free Public URL
+# No IP change, no port open, lifetime free
+# Dashboard: Dash > Zero Trust > Networks > Tunnels > Create Tunnel
+# Name: deepseek-tunnel
+# Public Hostname: ai.yourdomain.com -> http://localhost:3000
+
+tunnel: deepseek-tunnel
+ingress:
+  - hostname: ai.yourdomain.com
+    service: http://localhost:3000
+  - service: http_status:404
+
+# quick tunnel for test
+# cloudflared tunnel --url http://localhost:3000
+# permanent install:
+# sudo cloudflared service install YOUR_TUNNEL_TOKEN
+# sudo systemctl status cloudflared
