@@ -1,4 +1,6 @@
-# DeepSeek-V4.1-Flash — Free Lifetime Repo
+# DeepSeek 4.1 Flash: Free
+
+**Repo Name: `DeepSeek-4.1-Flash-Free`** (GitHub-safe name)
 
 **Zero Investment • Lifetime Setup • Ollama + Oracle Always Free + Open WebUI + Cloudflare Tunnel + R2 Backup**
 
@@ -9,8 +11,8 @@ One-click setup / dễ setup repo.
 SSH into your Oracle VM (Ubuntu 22.04/24.04 ARM 4 OCPU 24GB) and run:
 
 ```bash
-git clone https://github.com/your-username/deepseek-v4-1-flash-free-lifetime.git
-cd deepseek-v4-1-flash-free-lifetime
+git clone https://github.com/your-username/DeepSeek-4.1-Flash-Free.git
+cd DeepSeek-4.1-Flash-Free
 chmod +x scripts/setup.sh
 ./scripts/setup.sh
 ```
