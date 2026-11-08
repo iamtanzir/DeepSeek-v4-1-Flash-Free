@@ -1,4 +1,3 @@
-version: "3.9"
 services:
   ollama:
     image: ollama/ollama:latest
@@ -11,19 +10,23 @@ services:
     environment:
       - OLLAMA_HOST=0.0.0.0
       - OLLAMA_KEEP_ALIVE=24h
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
 
   open-webui:
     image: ghcr.io/open-webui/open-webui:main
     container_name: open-webui
     restart: unless-stopped
     depends_on:
-      - ollama
+      ollama:
+        condition: service_healthy
     ports:
       - "3000:8080"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     environment:
-      - OLLAMA_BASE_URL=http://host.docker.internal:11434
-      - DATA_DIR=/app/backend/data
+      # Docker service name - host.docker.internal na, ete container-to-container direct
+      - OLLAMA_BASE_URL=http://ollama:11434
     volumes:
       - ./open-webui:/app/backend/data

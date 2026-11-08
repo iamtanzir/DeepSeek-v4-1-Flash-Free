@@ -1,0 +1,3 @@
+# Force LF for shell scripts (Windows CRLF bash bug prevention)
+*.sh text=auto eol=lf
+*.yml text=auto eol=lf
