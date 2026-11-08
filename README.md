@@ -163,6 +163,23 @@ Card na thakle:
 
 ---
 
+## 📴 Offline Download Option (No Internet Needed)
+
+Cloud/internet na thakle o model cholbe — ekbare download kore backup rakho:
+
+```bash
+chmod +x scripts/offline-download.sh
+./scripts/offline-download.sh deepseek-v4.1-flash ./offline-models
+# optional USB copy: rsync -av ./offline-models/ /mnt/usb/
+```
+
+Offline use: `offline-models/` folder + Ollama + model files USB te rakho; internet charai
+`docker compose up -d` -> model already cached -> chat cholbe. Restore/high backup: `./scripts/restore-r2.sh`
+
+> ℹ️ Official HF snapshot: `hf download deepseek-ai/DeepSeek-V4.1-Flash --local-dir ./offline-models/hf`
+
+---
+
 ## 🧪 Google Colab — Demo Only (NOT Lifetime)
 
 > ⚠️ Colab free **lifetime full-time na**: 12h max, idle disconnect, data erase. Testing er jonno valo, lifetime er jonno Oracle VM.
