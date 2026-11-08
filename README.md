@@ -4,7 +4,8 @@
 
 # DeepSeek v4.1 Flash & Coder
 
-**A free lifetime cloud setup — Ollama + Oracle Always Free / VPS + Open WebUI, public URL via Cloudflare Tunnel, backup via Cloudflare R2. 2 models in one repo: DeepSeek v4.1 Flash (chat) + DeepSeek Coder (code). Zero investment, copy-paste only.**
+**A free lifetime cloud setup — Ollama + Oracle Always Free / VPS + Open WebUI, public URL via Cloudflare Tunnel, backup via Cloudflare R2. 2 models in one repo: DeepSeek v4.1 Flash (chat) + DeepSeek Coder (code). 
+Zero investment, copy-paste only.**
 
 [![GitHub](https://img.shields.io/badge/🚀_GITHUB-iamtanzir%2FDeepSeek--v4--1--Flash--Free-22d3ee?style=for-the-badge&logo=github&logoColor=white)](https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free)
 [![Version](https://img.shields.io/badge/version-1.0.1-8b5cf6?style=for-the-badge)](https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free/releases)
