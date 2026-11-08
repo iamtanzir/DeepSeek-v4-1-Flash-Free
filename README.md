@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./docs/banner.png" alt="DeepSeek 4.1 Flash: Free — Lifetime free cloud setup" width="100%" />
+<img src="./docs/banner.svg" alt="DeepSeek 4.1 Flash: Free — Lifetime free cloud setup" width="100%" />
 
 # DeepSeek 4.1 Flash: Free
 
