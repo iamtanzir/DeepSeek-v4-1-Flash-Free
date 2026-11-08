@@ -10,7 +10,7 @@
 [![Version](https://img.shields.io/badge/version-1.0.1-8b5cf6?style=for-the-badge)](https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free/releases)
 [![License](https://img.shields.io/badge/license-MIT-22c55e?style=for-the-badge)](./LICENSE)
 [![Setup](https://img.shields.io/badge/setup-one--click-f472b6?style=for-the-badge)](#⚡-quick-start)
-[![Cost](https://img.shields.io/badge/cost-₹0_lifetime-0ea5e9?style=for-the-badge)](#-cost--limits)
+[![Cost](https://img.shields.io/badge/cost-$0_lifetime-0ea5e9?style=for-the-badge)](#-cost--limits)
 [![NoCard](https://img.shields.io/badge/HF_Spaces-no_card-FFDD00?style=for-the-badge&labelColor=111827)](#-hf-spaces--no-card-free)
 
 [**📘 বাংলা সেটআপ গাইড**](./DeepSeek-V4.1-Flash_Free_Lifetime_Setup_Bangla_Guide.docx) · [**🐞 Report a bug**](https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free/issues) · [**💖 Support the developer**](https://www.supportkori.com/tanzirahmed)
@@ -89,11 +89,11 @@ Edit `docker-compose.yml` ports `3000:8080` → `3001:8080`, then `docker compos
 
 | Component | Cost | Notes |
 |---|---|---|
-| Oracle Cloud Always Free | ₹0 lifetime | Ampere 4 OCPU 24GB; idle hole VM stop hote pare, R2 backup thakle restore 10 min |
-| Ollama + Open WebUI | ₹0 | Open-source, MIT |
-| Cloudflare Tunnel | ₹0 | Stable public URL, no port open |
-| Cloudflare R2 | ₹0 (10GB) | Model + WebUI data backup, no re-pull |
-| **Total** | **₹0** | Card only verification er jonno, charge hobe na |
+| Oracle Cloud Always Free | $0 lifetime | Ampere 4 OCPU 24GB; idle hole VM stop hote pare, R2 backup thakle restore 10 min |
+| Ollama + Open WebUI | $0 | Open-source, MIT |
+| Cloudflare Tunnel | $0 | Stable public URL, no port open |
+| Cloudflare R2 | $0 (10GB) | Model + WebUI data backup, no re-pull |
+| **Total** | **$0** | Card only verification er jonno, charge hobe na |
 
 > ℹ️ Flash model Q4_K_M GGUF use koro — 24GB RAM e safe. Full precision hole RAM শেষ হবে.
 

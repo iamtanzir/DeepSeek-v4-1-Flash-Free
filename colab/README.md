@@ -39,7 +39,7 @@ curl http://localhost:11434/v1/chat/completions \
 
 | | Colab Free | Oracle Always Free |
 |---|---|---|
-| Cost | ₹0 | ₹0 |
+| Cost | $0 | $0 |
 | Duration | 12h max, idle disconnect | Lifetime (Always Free) |
 | Persistence | ❌ | ✅ (R2 backup soho) |
 | GPU | T4 free | CPU ARM only |
