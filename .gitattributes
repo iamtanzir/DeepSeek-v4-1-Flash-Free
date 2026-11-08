@@ -1,3 +1,5 @@
 # Force LF for shell scripts (Windows CRLF bash bug prevention)
 *.sh text=auto eol=lf
 *.yml text=auto eol=lf
+# Ensure GitHub Linguist detects Shell correctly (fix code search 0 files)
+*.sh linguist-language=shell
