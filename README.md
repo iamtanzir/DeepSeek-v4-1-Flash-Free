@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./docs/banner.svg" alt="DeepSeek 4.1 Flash: Free — Lifetime free cloud setup" width="100%" />
+<img src="./docs/banner.png" alt="DeepSeek 4.1 Flash: Free — Lifetime free cloud setup" width="100%" />
 
 # DeepSeek 4.1 Flash: Free
 
@@ -23,9 +23,9 @@
 
 <table>
   <tr>
-    <td align="center" width="34%"><img src="./docs/screenshot-chat.svg" alt="Chat — Open WebUI with DeepSeek-V4.1-Flash" width="100%" /><br/><sub><b>Chat</b> — Open WebUI streaming replies</sub></td>
-    <td align="center" width="34%"><img src="./docs/screenshot-docker.svg" alt="Docker — Ollama + Open WebUI" width="100%" /><br/><sub><b>Docker</b> — Ollama :11434 + WebUI :3000</sub></td>
-    <td align="center" width="34%"><img src="./docs/screenshot-tunnel.svg" alt="Cloudflare Tunnel" width="100%" /><br/><sub><b>Tunnel</b> — stable public URL, no IP change</sub></td>
+    <td align="center" width="34%"><img src="./docs/screenshot-chat.png" alt="Chat — Open WebUI with DeepSeek-V4.1-Flash" width="100%" /><br/><sub><b>Chat</b> — Open WebUI streaming replies</sub></td>
+    <td align="center" width="34%"><img src="./docs/screenshot-docker.png" alt="Docker — Ollama + Open WebUI" width="100%" /><br/><sub><b>Docker</b> — Ollama :11434 + WebUI :3000</sub></td>
+    <td align="center" width="34%"><img src="./docs/screenshot-tunnel.png" alt="Cloudflare Tunnel" width="100%" /><br/><sub><b>Tunnel</b> — stable public URL, no IP change</sub></td>
   </tr>
 </table>
 
