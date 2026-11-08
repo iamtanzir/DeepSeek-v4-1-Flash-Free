@@ -42,6 +42,22 @@
 
 ---
 
+## 🎯 Choose Your Model — 2 Options
+
+> ⚠️ **First choose one.** Flash chaile Option 1, Coder chaile Option 2. Sudhu jeta choice korba setai setup koro.
+
+| | Option 1 — DeepSeek 4.1 Flash | Option 2 — DeepSeek Coder |
+|---|---|---|
+| Use case | General chat, Bangla/English, reasoning | Code লেখা, debug, completion |
+| Model flag | `deepseek-v4.1-flash` | `deepseek-coder:6.7b-instruct` (33b pele boro) |
+| Official | https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash | https://github.com/deepseek-ai/DeepSeek-Coder |
+| Setup command | `./scripts/setup.sh` + `ollama pull deepseek-v4.1-flash` | `./scripts/coder-setup.sh` + `ollama pull deepseek-coder:6.7b-instruct` |
+| Ollama link | https://ollama.com/library/deepseek-v4.1-flash | https://ollama.com/library/deepseek-coder |
+| Integrations | OpenCode example, vLLM recipe | https://github.com/deepseek-ai/awesome-deepseek-integration |
+| RAM | 24GB safe (Q4_K_M) | 6.7B safe / 33B VRAM দরকার |
+
+Both use **same free stack** — Ollama + Oracle Always Free / VPS + Open WebUI + Cloudflare Tunnel + R2 backup.
+
 ## ⚡ Quick Start
 
 SSH into your Oracle VM (Ubuntu 22.04 / 24.04, Ampere ARM) and **paste this block**:
