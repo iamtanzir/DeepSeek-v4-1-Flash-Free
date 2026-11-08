@@ -188,6 +188,24 @@ Quick setup notebook: `colab/colab-setup.ipynb` — T4 GPU, Ollama + Cloudflare 
 
 ---
 
+## 🖥️ VPS / Self Cloud Hosting Setup (Any VPS)
+
+Oracle chara onno kono VPS (Hostinger, Contabo, AWS, Hetzner, DigitalOcean, nijer cloud) diye use korte chaile:
+
+```bash
+# VPS e Ubuntu 22.04/24.04, SSH koro, tarpor paste:
+git clone https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free.git
+cd DeepSeek-v4-1-Flash-Free
+chmod +x scripts/*.sh
+./scripts/vps-setup.sh
+```
+
+UFW (22/3000/11434), Docker, model pull, Nginx reverse proxy (`configs/nginx.conf.example`) — sob auto. Public URL: `cloudflared tunnel --url http://localhost:3000`
+
+Nijer home server/PC teo ek e vabe: Docker Desktop + `docker compose up -d` chalale offline o cholbe.
+
+---
+
 ## 🤖 API & OpenCode
 
 ```bash
