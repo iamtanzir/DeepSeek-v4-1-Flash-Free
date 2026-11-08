@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img">
+<rect width="800" height="450" fill="#111827"/>
+<text x="400" y="210" text-anchor="middle" font-family="Arial" font-size="28" fill="#f9fafb">Cloudflare Tunnel</text>
+<text x="400" y="250" text-anchor="middle" font-family="Arial" font-size="18" fill="#9ca3af">Stable public URL — no IP change</text>
+<text x="400" y="400" text-anchor="middle" font-family="Arial" font-size="14" fill="#6b7280">Placeholder screenshot — add your own PNG later</text>
+</svg>
