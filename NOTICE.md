@@ -1,4 +1,4 @@
-NOTICE — DeepSeek 4.1 Flash: Free
+NOTICE — DeepSeek v4.1 Flash & Coder
 
 # English
 

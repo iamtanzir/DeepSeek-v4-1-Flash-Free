@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="./docs/banner.svg" alt="DeepSeek 4.1 Flash: Free — Lifetime free cloud setup" width="100%" />
+<img src="./docs/banner.svg" alt="DeepSeek v4.1 Flash & Coder — Lifetime free cloud setup" width="100%" />
 
-# DeepSeek 4.1 Flash: Free
+# DeepSeek v4.1 Flash & Coder
 
-**A free lifetime cloud setup — Ollama + Oracle Always Free + Open WebUI, public URL via Cloudflare Tunnel, backup via Cloudflare R2. Zero investment, copy-paste only.**
+**A free lifetime cloud setup — Ollama + Oracle Always Free / VPS + Open WebUI, public URL via Cloudflare Tunnel, backup via Cloudflare R2. 2 models in one repo: DeepSeek v4.1 Flash (chat) + DeepSeek Coder (code). Zero investment, copy-paste only.**
 
 [![GitHub](https://img.shields.io/badge/🚀_GITHUB-iamtanzir%2FDeepSeek--v4--1--Flash--Free-22d3ee?style=for-the-badge&logo=github&logoColor=white)](https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free)
 [![Version](https://img.shields.io/badge/version-1.0.1-8b5cf6?style=for-the-badge)](https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free/releases)
@@ -330,7 +330,7 @@ DeepSeek-v4-1-Flash-Free/
 
 [![Support on SupportKori](https://img.shields.io/badge/💖_SUPPORT_THE_DEVELOPER-SupportKori-FFDD00?style=for-the-badge&labelColor=111827)](https://www.supportkori.com/tanzirahmed)
 
-**DeepSeek 4.1 Flash: Free by Tanzir Ahmed** · *Zero Investment • Lifetime Use*
+**DeepSeek v4.1 Flash & Coder by Tanzir Ahmed** · *Zero Investment • Lifetime Use*
 
 </div>
 
@@ -351,7 +351,7 @@ DeepSeek-v4-1-Flash-Free/
 
 <div align="center">
 
-© 2026 Tanzir Ahmed — **DeepSeek 4.1 Flash: Free**
+© 2026 Tanzir Ahmed — **DeepSeek v4.1 Flash & Coder**
 
 [Repository](https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free) · [Issues](https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free/issues) · [Support](https://www.supportkori.com/tanzirahmed)
 
