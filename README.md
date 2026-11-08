@@ -163,7 +163,7 @@ Card na thakle:
 
 ---
 
-## 📴 Offline Download Option (No Internet Needed)
+## 📴 Offline Download Option (No Internet Use)
 
 Cloud/internet na thakle o model cholbe — ekbare download kore backup rakho:
 
@@ -173,7 +173,7 @@ chmod +x scripts/offline-download.sh
 # optional USB copy: rsync -av ./offline-models/ /mnt/usb/
 ```
 
-Offline use: `offline-models/` folder + Ollama + model files USB te rakho; internet charai
+Offline use: `offline-models/` folder + Ollama + model files USB te rakho; no internet use e
 `docker compose up -d` -> model already cached -> chat cholbe. Restore/high backup: `./scripts/restore-r2.sh`
 
 > ℹ️ Official HF snapshot: `hf download deepseek-ai/DeepSeek-V4.1-Flash --local-dir ./offline-models/hf`
