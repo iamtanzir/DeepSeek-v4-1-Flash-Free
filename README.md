@@ -302,6 +302,15 @@ DeepSeek-v4-1-Flash-Free/
 
 ---
 
+## 🙏 Development Credit & Legal Notice
+
+- **Model:** @DeepSeek / @deepseek-ai — [`DeepSeek-V4.1-Flash`](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash) · [DeepSeek News](https://www.deepseek.com/en/news/deepseek-v4-1-flash/) · [Ollama](https://ollama.com/library/deepseek-v4.1-flash) — weights copyright & trademark © DeepSeek. This repo is setup only, does NOT own or redistribute the model.
+- **This repo (scripts/docs):** © Tanzir Ahmed — MIT (see `LICENSE`, `NOTICE.md`).
+- **Others:** Ollama, Open WebUI, Cloudflare, Oracle — their own licenses/trademarks apply.
+- **Copyright / ICT law:** Official source theke download, no copied source/logo beyond fair-use credit. Bangladesh ICT Act 2006 / Cyber Security Act 2023 ba DMCA violation kore na. Details: [`NOTICE.md`](./NOTICE.md).
+
+---
+
 ## 📄 License
 
 **MIT License** — free to use, modify, and distribute.
