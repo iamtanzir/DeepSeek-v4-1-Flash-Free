@@ -163,6 +163,14 @@ Card na thakle:
 
 ---
 
+## 🧪 Google Colab — Demo Only (NOT Lifetime)
+
+> ⚠️ Colab free **lifetime full-time na**: 12h max, idle disconnect, data erase. Testing er jonno valo, lifetime er jonno Oracle VM.
+
+Quick setup notebook: `colab/colab-setup.ipynb` — T4 GPU, Ollama + Cloudflare quick tunnel, no card. Full guide: `colab/README.md`.
+
+---
+
 ## 🤖 API & OpenCode
 
 ```bash
