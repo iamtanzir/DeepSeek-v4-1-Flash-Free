@@ -1,17 +1,23 @@
-# Cloudflare Tunnel - Permanent Free Public URL
-# No IP change, no port open, lifetime free
-# Dashboard: Dash > Zero Trust > Networks > Tunnels > Create Tunnel
-# Name: deepseek-tunnel
-# Public Hostname: ai.yourdomain.com -> http://localhost:3000
+# Cloudflare Tunnel — locally-managed config example.
+#
+# Dashboard-managed tunnels (token install) do NOT use this file; the ingress
+# rules live in the Zero Trust dashboard.
+#
+# Locally-managed flow:
+#   cloudflared tunnel login
+#   cloudflared tunnel create deepseek-tunnel
+#   cp config.yml ~/.cloudflared/config.yml   # edit UUID + hostname
+#   cloudflared tunnel route dns deepseek-tunnel ai.yourdomain.com
+#   sudo cloudflared service install
+#   sudo systemctl enable --now cloudflared
+#
+# Quick test tunnel (URL changes on every restart):
+#   cloudflared tunnel --url http://localhost:3000
 
-tunnel: deepseek-tunnel
+tunnel: YOUR_TUNNEL_UUID
+credentials-file: /root/.cloudflared/YOUR_TUNNEL_UUID.json
+
 ingress:
   - hostname: ai.yourdomain.com
     service: http://localhost:3000
   - service: http_status:404
-
-# quick tunnel for test
-# cloudflared tunnel --url http://localhost:3000
-# permanent install:
-# sudo cloudflared service install YOUR_TUNNEL_TOKEN
-# sudo systemctl status cloudflared

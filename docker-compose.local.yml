@@ -1,0 +1,23 @@
+# Local overlay — high-end PC / workstation / Mac (Apple Silicon uses the
+# native Ollama app for Metal; Docker on macOS has no GPU passthrough).
+#
+#   docker compose -f docker-compose.yml -f docker-compose.local.yml up -d
+#
+# This only changes runtime tuning and the model folder. It does NOT reserve a
+# GPU. Add docker-compose.gpu.yml for NVIDIA:
+#
+#   docker compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.gpu.yml up -d
+
+services:
+  ollama:
+    environment:
+      # Keep the model hot between messages on a machine that can afford it.
+      OLLAMA_KEEP_ALIVE: "${OLLAMA_KEEP_ALIVE:-24h}"
+      OLLAMA_NUM_PARALLEL: "${OLLAMA_NUM_PARALLEL:-2}"
+      OLLAMA_MAX_LOADED_MODELS: "${OLLAMA_MAX_LOADED_MODELS:-1}"
+      # Flash attention + quantised KV cache: much cheaper long contexts.
+      OLLAMA_FLASH_ATTENTION: "${OLLAMA_FLASH_ATTENTION:-1}"
+      OLLAMA_KV_CACHE_TYPE: "${OLLAMA_KV_CACHE_TYPE:-q8_0}"
+      OLLAMA_CONTEXT_LENGTH: "${OLLAMA_CONTEXT_LENGTH:-32768}"
+    # Model storage stays defined in docker-compose.yml (OLLAMA_MODELS_DIR).
+    # Point that variable at a fast NVMe drive if the repo lives on a slow disk.

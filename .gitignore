@@ -1,14 +1,26 @@
-# Ollama models
+# Ollama models (can be hundreds of GB)
 ollama-models/
 # Open WebUI data
 open-webui/
-# env secrets
+# Offline bundles
+offline-models/
+# Backups
+backups/
+*.tar.gz
+
+# env secrets (keep the example)
 .env
+.env.*
+!.env.example
+
 # cloudflare token
 *.token
 # rclone config
 .rclone.conf
+rclone.conf
+
 # system
 .DS_Store
 Thumbs.db
 *.log
+__pycache__/

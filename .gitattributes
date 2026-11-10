@@ -1,5 +1,19 @@
-# Force LF for shell scripts (Windows CRLF bash bug prevention)
-*.sh text=auto eol=lf
-*.yml text=auto eol=lf
-# Ensure GitHub Linguist detects Shell correctly (fix code search 0 files)
+# Shell scripts must stay LF (CRLF breaks bash on Linux/VMs)
+*.sh text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.ipynb text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.jsonc text eol=lf
+# .env files are sourced by bash; CRLF breaks values in WSL/Linux
+.env.example text eol=lf
+*.env.example text eol=lf
+*.conf.example text eol=lf
+
+# PowerShell is happiest with CRLF
+*.ps1 text eol=crlf
+
+# Ensure GitHub Linguist detects Shell correctly
 *.sh linguist-language=shell
+*.ps1 linguist-language=PowerShell

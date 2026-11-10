@@ -1,33 +1,37 @@
 #!/usr/bin/env bash
-set -euo pipefail
-# VPS / Self Cloud Hosting setup — generic Ubuntu VPS (Hostinger, Contabo, Oracle, any)
-# Usage: ssh ubuntu@YOUR_VPS_IP && git clone <repo> && ./scripts/vps-setup.sh
+# Generic Ubuntu/Debian VPS setup: firewall + Docker + free lite model.
+#   ./scripts/vps-setup.sh
+#   ./scripts/vps-setup.sh --mode coder
+set -Eeuo pipefail
 
-echo "=== VPS Self Hosting Setup (any Ubuntu VPS) ==="
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(cd -- "$SCRIPT_DIR/.." && pwd)"
+# shellcheck source=common.sh
+. "$SCRIPT_DIR/common.sh"
 
-# 1. Base
-sudo apt update && sudo apt upgrade -y
-sudo apt install -y curl git ufw
+# Read .env first so the firewall opens the real WEBUI_PORT.
+load_env
 
-# 2. Firewall (22, 3000, 11434)
-sudo ufw allow OpenSSH
-sudo ufw allow 3000/tcp
-sudo ufw allow 11434/tcp
-sudo ufw --force enable
+if [ "$(id -u)" -eq 0 ]; then
+  SUDO=""
+else
+  SUDO="sudo"
+fi
 
-# 3. Docker
-curl -fsSL https://get.docker.com | sudo sh
-sudo usermod -aG docker "$USER" || true
-sg docker -c "docker --version" || sudo docker --version
+# Only SSH and the authenticated WebUI port. NEVER open 11434: the Ollama API
+# has no authentication and would let anyone on the internet use your machine.
+if have ufw; then
+  log "Configuring UFW (22 + ${WEBUI_PORT:-3000}/tcp, Ollama stays private)"
+  # shellcheck disable=SC2086
+  ${SUDO} ufw allow OpenSSH
+  # shellcheck disable=SC2086
+  ${SUDO} ufw allow "${WEBUI_PORT:-3000}/tcp"
+  # shellcheck disable=SC2086
+  ${SUDO} ufw --force enable
+  # shellcheck disable=SC2086
+  ${SUDO} ufw status || true
+else
+  warn "ufw not found. Make sure only SSH and ${WEBUI_PORT:-3000} are reachable."
+fi
 
-# 4. Pull model + WebUI (Docker-only, fixed)
-sudo docker compose up -d
-sleep 5
-for i in $(seq 1 30); do curl -fs http://localhost:11434/api/tags >/dev/null 2>&1 && break; sleep 2; done
-sudo docker exec deepseek-ollama ollama pull deepseek-v4.1-flash
-sudo docker exec deepseek-ollama ollama list
-
-# 5. Nginx optional (domain + HTTPS via Cloudflare Tunnel recommended)
-echo "Done! Open WebUI: http://YOUR_VPS_IP:3000"
-echo "Public URL: cloudflared tunnel --url http://localhost:3000"
-echo "Backup: ./scripts/backup-r2.sh"
+exec "$SCRIPT_DIR/setup.sh" --mode lite "$@"

@@ -1,16 +1,18 @@
-# Cloudflare Tunnel is still configured fully with zero open ports, IP swap not needed.
-# User only need replace YOUR_VM_IP / ai.yourdomain.com
-tunnel: deepseek-prod
+# Cloudflare Tunnel configuration (locally-managed tunnel).
+#
+# You only need this file if you created a tunnel with `cloudflared tunnel
+# create` and want to run the connector yourself. If you created the tunnel in
+# the Zero Trust dashboard and installed its token, the dashboard owns the
+# ingress rules and you can ignore this file.
+#
+# Replace YOUR_TUNNEL_UUID and the hostname, then:
+#   sudo cloudflared service install
+#   sudo systemctl enable --now cloudflared
+
+tunnel: YOUR_TUNNEL_UUID
+credentials-file: /etc/cloudflared/YOUR_TUNNEL_UUID.json
+
 ingress:
   - hostname: ai.yourdomain.com
     service: http://localhost:3000
   - service: http_status:404
-
-# Quick command (test):
-# cloudflared tunnel --url http://localhost:3000
-# Permanent:
-# 1. Dash > Zero Trust > Tunnels > Create tunnel > deepseek-prod
-# 2. Copy token, then on VM:
-# sudo cloudflared service install YOUR_TOKEN
-# sudo systemctl enable --now cloudflared
-# 3. Public Hostname: ai.yourdomain.com -> http://localhost:3000

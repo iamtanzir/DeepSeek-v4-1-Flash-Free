@@ -1,32 +1,78 @@
+# DeepSeek Free — base stack (Ollama + Open WebUI)
+#
+# Works on any Linux VM / home server / Docker Desktop.
+# Ollama is bound to 127.0.0.1 by default: never expose the unauthenticated
+# Ollama API to the internet. Open WebUI has accounts and is the public door.
+#
+#   docker compose up -d
+#
+# Local high-end PC:  add -f docker-compose.local.yml
+# NVIDIA GPU:         add -f docker-compose.gpu.yml
+#
+# All values can be overridden in .env (see .env.example).
+
+name: deepseek-free
+
 services:
   ollama:
-    image: ollama/ollama:latest
-    container_name: deepseek-ollama
+    image: ${OLLAMA_IMAGE:-ollama/ollama:latest}
+    container_name: ${OLLAMA_CONTAINER:-deepseek-ollama}
     restart: unless-stopped
     ports:
-      - "11434:11434"
+      - "${OLLAMA_BIND:-127.0.0.1}:${OLLAMA_PORT:-11434}:11434"
     volumes:
-      - ./ollama-models:/root/.ollama
+      # Override with OLLAMA_MODELS_DIR to put the (huge) model store on a fast disk.
+      - "${OLLAMA_MODELS_DIR:-./ollama-models}:/root/.ollama"
     environment:
-      - OLLAMA_HOST=0.0.0.0
-      - OLLAMA_KEEP_ALIVE=24h
+      OLLAMA_HOST: "0.0.0.0:11434"
+      OLLAMA_KEEP_ALIVE: "${OLLAMA_KEEP_ALIVE:-30m}"
+      OLLAMA_NUM_PARALLEL: "${OLLAMA_NUM_PARALLEL:-1}"
+      OLLAMA_MAX_LOADED_MODELS: "${OLLAMA_MAX_LOADED_MODELS:-1}"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
-      interval: 10s
-      timeout: 5s
-      retries: 12
+      # `ollama list` ships inside the image and does not need curl.
+      test: ["CMD-SHELL", "OLLAMA_HOST=127.0.0.1:11434 ollama list >/dev/null 2>&1"]
+      interval: 15s
+      timeout: 10s
+      retries: 20
+      start_period: 20s
 
   open-webui:
-    image: ghcr.io/open-webui/open-webui:main
-    container_name: open-webui
+    image: ${WEBUI_IMAGE:-ghcr.io/open-webui/open-webui:main}
+    container_name: ${WEBUI_CONTAINER:-open-webui}
     restart: unless-stopped
     depends_on:
       ollama:
         condition: service_healthy
     ports:
-      - "3000:8080"
+      - "${WEBUI_BIND:-0.0.0.0}:${WEBUI_PORT:-3000}:8080"
     environment:
-      # Docker service name - host.docker.internal na, ete container-to-container direct
-      - OLLAMA_BASE_URL=http://ollama:11434
+      # Container-to-container name, never host.docker.internal.
+      OLLAMA_BASE_URL: "http://ollama:11434"
+      WEBUI_URL: "${PUBLIC_URL:-http://localhost:3000}"
+      # Keep this stable or every restart logs everyone out.
+      WEBUI_SECRET_KEY: "${WEBUI_SECRET_KEY:-}"
+      DEFAULT_MODELS: "${MODEL:-deepseek-r1:8b}"
+      ENABLE_SIGNUP: "${ENABLE_SIGNUP:-true}"
+      # New accounts wait for an admin unless you change this.
+      DEFAULT_USER_ROLE: "${DEFAULT_USER_ROLE:-pending}"
+      # Optional OpenAI-compatible endpoint (Ollama Cloud, DeepSeek API, OpenRouter…)
+      ENABLE_OPENAI_API: "${ENABLE_OPENAI_API:-false}"
+      OPENAI_API_BASE_URL: "${OPENAI_API_BASE_URL:-}"
+      OPENAI_API_KEY: "${OPENAI_API_KEY:-}"
+      # Newer Open WebUI releases read the plural forms.
+      OPENAI_API_BASE_URLS: "${OPENAI_API_BASE_URL:-}"
+      OPENAI_API_KEYS: "${OPENAI_API_KEY:-}"
     volumes:
       - ./open-webui:/app/backend/data
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health', timeout=5)",
+        ]
+      interval: 20s
+      timeout: 10s
+      retries: 15
+      start_period: 30s

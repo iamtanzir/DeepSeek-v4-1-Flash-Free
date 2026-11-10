@@ -1,0 +1,17 @@
+# NVIDIA GPU overlay. Requires:
+#   - NVIDIA driver on the host
+#   - NVIDIA Container Toolkit (Linux) or Docker Desktop + WSL2 GPU (Windows)
+#
+#   docker compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.gpu.yml up -d
+#
+# Verify with: docker run --rm --gpus all nvidia/cuda:12.6.3-base-ubuntu24.04 nvidia-smi
+
+services:
+  ollama:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

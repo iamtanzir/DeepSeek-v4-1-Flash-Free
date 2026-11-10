@@ -1,0 +1,19 @@
+# rclone remote for Cloudflare R2.
+# Copy to ~/.config/rclone/rclone.conf (Linux/macOS) or
+# %APPDATA%\rclone\rclone.conf (Windows), or create it with:
+#
+#   rclone config create r2 s3 provider=Cloudflare \
+#     access_key_id=YOUR_ACCESS_KEY \
+#     secret_access_key=YOUR_SECRET_KEY \
+#     endpoint=https://YOUR_ACCOUNT_ID.r2.cloudflarestorage.com \
+#     acl=private
+#
+# Dashboard → R2 → Manage API tokens → Create token (Object Read & Write).
+
+[r2]
+type = s3
+provider = Cloudflare
+access_key_id = YOUR_ACCESS_KEY
+secret_access_key = YOUR_SECRET_KEY
+endpoint = https://YOUR_ACCOUNT_ID.r2.cloudflarestorage.com
+acl = private

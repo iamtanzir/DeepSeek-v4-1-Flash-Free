@@ -1,11 +1,11 @@
 {
+  "$schema": "https://opencode.ai/config.json",
   "providers": {
-    "my-deepseek": {
-      "baseURL": "http://localhost:11434/v1",
-      "apiKey": "ollama",
-      "model": "deepseek-v4.1-flash",
-      "name": "DeepSeek-V4.1-Flash (Free Lifetime)"
+    "ollama": {
+      "settings": {
+        "baseURL": "http://127.0.0.1:11434/v1"
+      }
     }
   },
-  "model": "my-deepseek/deepseek-v4.1-flash"
+  "model": "ollama/deepseek-r1:8b"
 }

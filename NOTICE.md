@@ -13,6 +13,8 @@ It does NOT contain, redistribute exact weights, or claim ownership of the DeepS
   - https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash
   - https://www.deepseek.com/en/news/deepseek-v4-1-flash/
   - https://ollama.com/library/deepseek-v4.1-flash
+  - The published weights are ~763B total parameters. This repo does not ship
+    them; the free tier uses the smaller DeepSeek-R1 8B model instead.
 - **Tag:** `@deepseek-ai` / `@DeepSeek` — all model credit, weights copyright and trademark belong to DeepSeek.
 - Setup scripts and docs in this repo: © Tanzir Ahmed, MIT License (see `LICENSE`).
 - Open WebUI, Ollama, Docker, Cloudflare Tunnel: their respective licenses and trademarks apply.

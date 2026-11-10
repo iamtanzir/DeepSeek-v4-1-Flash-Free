@@ -1,22 +1,43 @@
 <div align="center">
 
-<img src="./docs/banner.svg" alt="DeepSeek v4.1 Flash & Coder — Lifetime free cloud setup" width="100%" />
+<img src="./docs/banner.svg" alt="DeepSeek Free — self-hosted Ollama + Open WebUI" width="100%" />
 
-# DeepSeek v4.1 Flash & Coder
+# DeepSeek Free — v4.1 Flash & Coder
 
-**A free lifetime cloud setup — Ollama + Oracle Always Free / VPS + Open WebUI, public URL via Cloudflare Tunnel, backup via Cloudflare R2. 2 models in one repo: DeepSeek v4.1 Flash (chat) + DeepSeek Coder (code). 
-Zero investment, copy-paste only.**
+**A free, lifetime, self-hosted AI stack: Ollama + Open WebUI + Cloudflare Tunnel + R2 backup.
+Works on an 8 GB laptop or the Oracle Always Free VM. Optional high-end local mode for the real 552B DeepSeek-V4.1-Flash. Zero investment, copy-paste only.**
 
 [![GitHub](https://img.shields.io/badge/🚀_GITHUB-iamtanzir%2FDeepSeek--v4--1--Flash--Free-22d3ee?style=for-the-badge&logo=github&logoColor=white)](https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free)
-[![Version](https://img.shields.io/badge/version-1.0.1-8b5cf6?style=for-the-badge)](https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free/releases)
+[![Version](https://img.shields.io/badge/version-1.1.0-8b5cf6?style=for-the-badge)](https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free/releases)
 [![License](https://img.shields.io/badge/license-MIT-22c55e?style=for-the-badge)](./LICENSE)
-[![Setup](https://img.shields.io/badge/setup-one--click-f472b6?style=for-the-badge)](#⚡-quick-start)
+[![Setup](https://img.shields.io/badge/setup-one--command-f472b6?style=for-the-badge)](#-quick-start)
 [![Cost](https://img.shields.io/badge/cost-$0_lifetime-0ea5e9?style=for-the-badge)](#-cost--limits)
-[![NoCard](https://img.shields.io/badge/HF_Spaces-no_card-FFDD00?style=for-the-badge&labelColor=111827)](#-hf-spaces--no-card-free)
 
-[**📘 বাংলা সেটআপ গাইড**](./DeepSeek-V4.1-Flash_Free_Lifetime_Setup_Bangla_Guide.docx) · [**🐞 Report a bug**](https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free/issues) · [**💖 Support the developer**](https://www.supportkori.com/tanzirahmed)
+[**📘 বাংলা গাইড**](./docs/SETUP-BANGLA.md) · [**📄 Word**](./DeepSeek-V4.1-Flash_Free_Lifetime_Setup_Bangla_Guide.docx) · [**🐞 Report a bug**](https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free/issues) · [**💖 Support**](https://www.supportkori.com/tanzirahmed)
 
 </div>
+
+---
+
+## ⚠️ Read this before you download 400 GB
+
+DeepSeek-V4.1-Flash is a **552B-parameter Mixture-of-Experts model** (763B total
+weights, 8B active per token). It is not a 24 GB model.
+
+| Build | Download size | Minimum unified RAM/VRAM |
+|---|---|---|
+| `UD-IQ1_M` | **~259 GB** | **288 GB** |
+| `Q4_K_M` | **~414 GB** | 448 GB |
+| `MXFP4` | **~708 GB** | 768 GB |
+
+The old version of this repo told people to run `ollama pull deepseek-v4.1-flash`
+on a 24 GB Oracle VM. That never worked: Ollama only publishes `:cloud` tags for
+that model, and no free VM can hold the weights. This version fixes that.
+
+**What the free tier actually runs:** `deepseek-r1:8b` (DeepSeek's official
+open reasoning model, ~5.2 GB, 8 GB RAM). It is excellent for chat, reasoning,
+Bangla/English, and code. If you want the exact V4.1-Flash model, use the
+**flagship local** mode on a workstation or the **API** mode on any device.
 
 ---
 
@@ -24,44 +45,32 @@ Zero investment, copy-paste only.**
 
 <table>
   <tr>
-    <td align="center" width="34%"><img src="./docs/screenshot-chat.png" alt="Chat — Open WebUI with DeepSeek-V4.1-Flash" width="100%" /><br/><sub><b>Chat</b> — Open WebUI streaming replies</sub></td>
+    <td align="center" width="34%"><img src="./docs/screenshot-chat.png" alt="Chat — Open WebUI" width="100%" /><br/><sub><b>Chat</b> — Open WebUI streaming replies</sub></td>
     <td align="center" width="34%"><img src="./docs/screenshot-docker.png" alt="Docker — Ollama + Open WebUI" width="100%" /><br/><sub><b>Docker</b> — Ollama :11434 + WebUI :3000</sub></td>
-    <td align="center" width="34%"><img src="./docs/screenshot-tunnel.png" alt="Cloudflare Tunnel" width="100%" /><br/><sub><b>Tunnel</b> — stable public URL, no IP change</sub></td>
+    <td align="center" width="34%"><img src="./docs/screenshot-tunnel.png" alt="Cloudflare Tunnel" width="100%" /><br/><sub><b>Tunnel</b> — stable public URL, no open ports</sub></td>
   </tr>
 </table>
 
 ---
 
-## ✨ Highlights
+## 🎯 Choose your path
 
-| | |
-|---|---|
-| ⚡ **Zero-setup start** — 1 copy-paste e Ollama + `deepseek-v4.1-flash` + Open WebUI ready. | 🌐 **Bengali-first guide** — সম্পূর্ণ বাংলা নির্দেশিকা (Word) included. |
-| ☁️ **Oracle Always Free** — Ampere ARM 4 OCPU 24GB lifetime ফ্রি, no billing. | 🐳 **Docker-only** — host Ollama conflict nai, port 11434 safe. |
-| 🔒 **Cloudflare Tunnel** — no IP change, no firewall port open, stable `https://` URL. | 💾 **Cloudflare R2 backup** — 10GB ফ্রি, VM erase hole re-pull lagbe na. |
-| 🆓 **HF Spaces fallback** — card na thakle o completely free. | 🧠 **OpenAI-compatible API** — `http://localhost:11434/v1/chat/completions` + OpenCode ready. |
+| | Path A — Free forever | Path B — High-end local | Path C — Real model, no hardware |
+|---|---|---|---|
+| **Model** | `deepseek-r1:8b` / `deepseek-coder:6.7b-instruct` | `DeepSeek-V4.1-Flash` IQ1_M/Q4 | `DeepSeek-V4.1-Flash` via API |
+| **Hardware** | 8 GB RAM, any VPS, Oracle Free | 288 GB+ RAM/VRAM | any phone/laptop |
+| **Cost** | $0 | hardware only | per-token (cheap) |
+| **Setup** | `./scripts/setup.sh` | `./scripts/local-setup.sh --mode flagship --gpu` | `./scripts/setup.sh --mode api` |
+| **Lifetime** | ✅ | ✅ | as long as you keep the key |
 
 ---
 
-## 🎯 Choose Your Model — 2 Options
+## ⚡ Quick start
 
-> ⚠️ **First choose one.** Flash chaile Option 1, Coder chaile Option 2. Sudhu jeta choice korba setai setup koro.
+### Path A — Free forever (recommended for everyone)
 
-| | Option 1 — DeepSeek 4.1 Flash | Option 2 — DeepSeek Coder |
-|---|---|---|
-| Use case | General chat, Bangla/English, reasoning | Code লেখা, debug, completion |
-| Model flag | `deepseek-v4.1-flash` | `deepseek-coder:6.7b-instruct` (33b pele boro) |
-| Official | https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash | https://github.com/deepseek-ai/DeepSeek-Coder |
-| Setup command | `./scripts/setup.sh` + `ollama pull deepseek-v4.1-flash` | `./scripts/coder-setup.sh` + `ollama pull deepseek-coder:6.7b-instruct` |
-| Ollama link | https://ollama.com/library/deepseek-v4.1-flash | https://ollama.com/library/deepseek-coder |
-| Integrations | OpenCode example, vLLM recipe | https://github.com/deepseek-ai/awesome-deepseek-integration |
-| RAM | 24GB safe (Q4_K_M) | 6.7B safe / 33B VRAM দরকার |
-
-Both use **same free stack** — Ollama + Oracle Always Free / VPS + Open WebUI + Cloudflare Tunnel + R2 backup.
-
-## ⚡ Quick Start
-
-SSH into your Oracle VM (Ubuntu 22.04 / 24.04, Ampere ARM) and **paste this block**:
+On any Ubuntu 22.04/24.04 VM (Oracle Always Free, Hostinger, Contabo, Hetzner,
+DigitalOcean…) or Linux home server:
 
 ```bash
 git clone https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free.git
@@ -70,228 +79,298 @@ chmod +x scripts/*.sh
 ./scripts/setup.sh
 ```
 
-Wait ~5 minutes. Then open:
+The installer:
 
+1. installs Docker Engine if missing (Linux),
+2. starts Ollama + Open WebUI,
+3. pulls `deepseek-r1:8b`,
+4. generates a stable `WEBUI_SECRET_KEY`,
+5. waits for both health checks,
+6. prints the URLs.
+
+Open **http://YOUR_VM_IP:3000**, register the admin account immediately, pick
+`deepseek-r1:8b`, chat.
+
+> On a 4 GB machine: `./scripts/setup.sh --mode nano` (1.5B, ~1.1 GB).
+
+### Path B — High-end local PC / workstation
+
+Windows (Docker Desktop + WSL2):
+
+```powershell
+git clone https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free.git
+cd DeepSeek-v4-1-Flash-Free
+.\scripts\local-setup.ps1              # lite model, local tuning
+.\scripts\local-setup.ps1 -Gpu         # + NVIDIA GPU reservation
+.\scripts\local-setup.ps1 -Mode flagship -Gpu   # real V4.1-Flash, 288 GB+
 ```
-http://YOUR_VM_IP:3000
-```
 
-Register → select model `deepseek-v4.1-flash` → chat.
-
-> ✅ **No manual install needed.** `setup.sh` does Docker + Ollama + model pull + cloudflared arch-detect + healthcheck wait.
-
-<details>
-<summary><b>5-minute manual setup (no script)</b></summary>
+Linux / macOS:
 
 ```bash
-curl -fsSL https://get.docker.com | sudo sh
-docker compose up -d
-docker exec deepseek-ollama ollama pull deepseek-v4.1-flash
+chmod +x scripts/*.sh
+./scripts/local-setup.sh               # lite model, local tuning
+./scripts/local-setup.sh --gpu         # + NVIDIA GPU
+./scripts/local-setup.sh --mode flagship --gpu  # real V4.1-Flash, 288 GB+
 ```
 
-Open WebUI: `http://localhost:3000`
-Ollama API: `http://localhost:11434`
-</details>
+**Flagship hardware reality check**
 
-<details>
-<summary><b>Change the port</b></summary>
+| Setup | Fits |
+|---|---|
+| Mac Studio M3 Ultra 512 GB | IQ1_M / Q4 |
+| Threadripper + 256 GB DDR5 + 2× RTX 6000 Ada | IQ1_M |
+| 4× H100 80 GB (320 GB) | IQ1_M |
+| 6× H100 80 GB (480 GB) | Q4 |
+| Gaming laptop 16–24 GB VRAM | ❌ use lite or API |
+| Oracle Always Free 24 GB | ❌ use lite |
 
-Edit `docker-compose.yml` ports `3000:8080` → `3001:8080`, then `docker compose up -d`.
+On macOS, use the **native Ollama app** for Metal acceleration; Docker on macOS
+has no GPU passthrough.
 
-</details>
+Local mode binds Open WebUI to `127.0.0.1` (this machine only). Set
+`WEBUI_BIND=0.0.0.0` in `.env` if you want other devices on your LAN to connect.
 
----
+The default flagship tag is the community IQ1_M build
+`frob/deepseek-v4.1-flash:552b-a8b-1017-ud-iq1_M` (~259 GB). For the official
+Unsloth GGUF at Q4 (~414 GB):
 
-## 🆓 Cost & Limits
+```bash
+./scripts/setup.sh --mode flagship --local --gpu \
+  --model hf.co/unsloth/DeepSeek-V4.1-Flash-1017-GGUF:UD-Q4_K_XL
+```
 
-| Component | Cost | Notes |
-|---|---|---|
-| Oracle Cloud Always Free | $0 lifetime | Ampere 4 OCPU 24GB; idle hole VM stop hote pare, R2 backup thakle restore 10 min |
-| Ollama + Open WebUI | $0 | Open-source, MIT |
-| Cloudflare Tunnel | $0 | Stable public URL, no port open |
-| Cloudflare R2 | $0 (10GB) | Model + WebUI data backup, no re-pull |
-| **Total** | **$0** | Card only verification er jonno, charge hobe na |
+### Path C — Real V4.1-Flash on any device (API)
 
-> ℹ️ Flash model Q4_K_M GGUF use koro — 24GB RAM e safe. Full precision hole RAM শেষ হবে.
+```bash
+cp .env.example .env
+# edit .env:
+#   ENABLE_OPENAI_API=true
+#   OPENAI_API_BASE_URL=https://ollama.com/v1
+#   OPENAI_API_KEY=your_key
+./scripts/setup.sh --mode api
+```
 
-<details>
-<summary><b>Why Ollama, not vLLM?</b></summary>
-
-vLLM er jonno 24GB+ GPU lage — free cloud e stable na (Colab T4 max 12h). Ollama CPU te chole, lifetime free. vLLM recipe: https://recipes.vllm.ai/deepseek-ai/DeepSeek-V4.1-Flash — GPU thakle use koro.
-</details>
+Works with any OpenAI-compatible endpoint: Ollama Cloud, DeepSeek API,
+OpenRouter, LiteLLM, vLLM. This is the only way to use the 552B model without
+288 GB of hardware.
 
 ---
 
 ## 🧩 Services
 
-| Service | Port | URL |
-|---|---|---|
-| Ollama | 11434 | `http://localhost:11434/v1/chat/completions` |
-| Open WebUI | 3000 | `http://localhost:3000` |
-| Cloudflare Tunnel | — | `https://ai.yourdomain.com` (stable) |
-| Cloudflare R2 | — | `r2:deepseek-backup` (free 10GB) |
+| Service | Default bind | URL | Auth |
+|---|---|---|---|
+| Open WebUI | `0.0.0.0:3000` | `http://localhost:3000` | ✅ accounts |
+| Ollama API | `127.0.0.1:11434` | `http://127.0.0.1:11434/v1` | ❌ **never expose** |
+| Cloudflare Tunnel | — | `https://ai.yourdomain.com` | Cloudflare Access |
+| Cloudflare R2 | — | `r2:deepseek-backup` | private bucket |
+
+Change ports in `.env` (`WEBUI_PORT`, `OLLAMA_PORT`). Keep `OLLAMA_BIND=127.0.0.1`.
 
 ---
 
-## 🔐 Cloudflare Tunnel — Public URL (Copy-Paste)
+## 🆓 Cost & limits
+
+| Component | Cost | Notes |
+|---|---|---|
+| Oracle Cloud Always Free | $0 lifetime | Ampere 4 OCPU / 24 GB RAM; runs the 8B model |
+| Ollama + Open WebUI | $0 | open source |
+| Cloudflare Tunnel | $0 | stable public URL, no open ports |
+| Cloudflare R2 | $0 for 10 GB | **cannot** hold the 259–414 GB flagship model |
+| Flagship local | hardware only | 288 GB+ RAM/VRAM |
+
+> **R2 warning:** 10 GB is enough for the lite/coder models and WebUI data.
+> Back up the flagship model to an external disk/NAS instead
+> (`./scripts/offline-download.sh`).
+
+---
+
+## 🔐 Cloudflare Tunnel — public URL
+
+Quick tunnel (test, URL changes on restart):
 
 ```bash
-# Quick tunnel (test, 1 min)
 cloudflared tunnel --url http://localhost:3000
 ```
 
-Permanent (Zero Trust):
+Permanent (Zero Trust dashboard):
 
 1. Cloudflare Dashboard → **Zero Trust → Networks → Tunnels → Create tunnel**
-2. Name: `deepseek-tunnel` → copy **Token**
-3. VM e:
+2. Name: `deepseek-tunnel` → copy the **token**
+3. On the VM:
+
 ```bash
 sudo cloudflared service install YOUR_TUNNEL_TOKEN
 sudo systemctl enable --now cloudflared
 ```
+
 4. Public Hostname: `ai.yourdomain.com` → `http://localhost:3000`
 
-Config: `configs/tunnel-ready.yml` — sudhu YOUR_VM_IP / domain replace koro.
+Locally-managed tunnel config: `configs/tunnel-ready.yml`.
+Do **not** create a public hostname for port 11434.
 
 ---
 
-## 💾 R2 Backup (Copy-Paste)
+## 💾 Backup & restore (R2)
 
 ```bash
-cp configs/r2-ready.env.example .env
-# edit .env with R2 keys
-chmod +x scripts/backup-r2.sh
-./scripts/backup-r2.sh
+# one-time: configure rclone
+rclone config create r2 s3 provider=Cloudflare \
+  access_key_id=... secret_access_key=... \
+  endpoint=https://YOUR_ACCOUNT_ID.r2.cloudflarestorage.com acl=private
 
-# VM erase hole restore:
-./scripts/restore-r2.sh
+./scripts/backup-r2.sh --dry-run   # preview
+./scripts/backup-r2.sh             # stops containers, copies, restarts
+./scripts/restore-r2.sh --yes      # uses copy, never wipes local data
+```
+
+The backup stops the containers first so SQLite and the model store are
+consistent. `restore-r2.sh` uses `rclone copy` (not `sync`), so an empty or
+wrong remote cannot delete your files. Restore stops the containers; start them
+again with `docker compose up -d` when it finishes.
+
+Config reference: `configs/rclone-r2.conf.example`.
+
+---
+
+## 📴 Offline bundle (USB / no internet)
+
+```bash
+./scripts/offline-download.sh deepseek-r1:8b ./offline-models
+# → offline-models/ollama-models-deepseek-r1_8b-YYYY-MM-DD.tar.gz
+```
+
+Restore anywhere:
+
+```bash
+tar -xzf ollama-models-*.tar.gz
 docker compose up -d
 ```
 
----
-
-## 🆓 HF Spaces — No Card Free
-
-Card na thakle:
-
-1. https://huggingface.co/spaces → search `DeepSeek-V4.1-Flash`
-2. **Duplicate** → free, card lage na
-3. Sleep hoile re-run koro (20-30 sec)
+The archive is a clean copy taken with the containers stopped. For the flagship
+model the archive is 259–414 GB, so use a real external drive.
 
 ---
 
-## 📴 Offline Download Option (No Internet Use)
+## 🧪 Google Colab — demo only
 
-Cloud/internet na thakle o model cholbe — ekbare download kore backup rakho:
+Colab free is **not** lifetime hosting: ~12 h max, idle disconnect, VM wiped.
+The free T4 (16 GB) cannot load V4.1-Flash. The notebook runs `deepseek-r1:8b`.
+
+Notebook: `colab/colab-setup.ipynb` · Guide: `colab/README.md`.
+
+---
+
+## 🖥️ Any VPS / home server
 
 ```bash
-chmod +x scripts/offline-download.sh
-./scripts/offline-download.sh deepseek-v4.1-flash ./offline-models
-# optional USB copy: rsync -av ./offline-models/ /mnt/usb/
-```
-
-Offline use: `offline-models/` folder + Ollama + model files USB te rakho; no internet use e
-`docker compose up -d` -> model already cached -> chat cholbe. Restore/high backup: `./scripts/restore-r2.sh`
-
-> ℹ️ Official HF snapshot: `hf download deepseek-ai/DeepSeek-V4.1-Flash --local-dir ./offline-models/hf`
-
----
-
-## 🧪 Google Colab — Demo Only (NOT Lifetime)
-
-> ⚠️ Colab free **lifetime full-time na**: 12h max, idle disconnect, data erase. Testing er jonno valo, lifetime er jonno Oracle VM.
-
-Quick setup notebook: `colab/colab-setup.ipynb` — T4 GPU, Ollama + Cloudflare quick tunnel, no card. Full guide: `colab/README.md`.
-
----
-
-## 🖥️ VPS / Self Cloud Hosting Setup (Any VPS)
-
-Oracle chara onno kono VPS (Hostinger, Contabo, AWS, Hetzner, DigitalOcean, nijer cloud) diye use korte chaile:
-
-```bash
-# VPS e Ubuntu 22.04/24.04, SSH koro, tarpor paste:
 git clone https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free.git
 cd DeepSeek-v4-1-Flash-Free
 chmod +x scripts/*.sh
 ./scripts/vps-setup.sh
 ```
 
-UFW (22/3000/11434), Docker, model pull, Nginx reverse proxy (`configs/nginx.conf.example`) — sob auto. Public URL: `cloudflared tunnel --url http://localhost:3000`
+`vps-setup.sh` opens only SSH + the WebUI port in UFW. It deliberately does
+**not** open 11434. For a home PC, use `./scripts/local-setup.sh`.
 
-Nijer home server/PC teo ek e vabe: Docker Desktop + `docker compose up -d` chalale offline o cholbe.
+Nginx reverse proxy: `configs/nginx.conf.example` (WebUI only, WebSocket-ready).
 
 ---
 
 ## 🤖 API & OpenCode
 
 ```bash
-curl http://localhost:11434/v1/chat/completions \
+curl http://127.0.0.1:11434/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -d '{"model":"deepseek-v4.1-flash","messages":[{"role":"user","content":"Hi"}]}'
+  -d '{"model":"deepseek-r1:8b","messages":[{"role":"user","content":"Hi"}]}'
 ```
 
-OpenCode config: `configs/opencode.json.example` — `baseURL: http://localhost:11434/v1`
+OpenCode (local):
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "providers": {
+    "ollama": { "settings": { "baseURL": "http://127.0.0.1:11434/v1" } }
+  },
+  "model": "ollama/deepseek-r1:8b"
+}
+```
+
+OpenCode (Ollama Cloud / remote): `configs/opencode-cloud.json.example`.
 
 Official links:
+
 - https://www.deepseek.com/en/news/deepseek-v4-1-flash/
 - https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash
 - https://ollama.com/library/deepseek-v4.1-flash
+- https://ollama.com/library/deepseek-r1
 - https://recipes.vllm.ai/deepseek-ai/DeepSeek-V4.1-Flash
 
 ---
 
-## 💻 DeepSeek-Coder — Full Free (Same Setup)
-
-Same free stack, code-focused model. Copy-paste:
+## 💻 DeepSeek-Coder
 
 ```bash
-chmod +x scripts/coder-setup.sh
-./scripts/coder-setup.sh deepseek-coder:6.7b-instruct
-# Open WebUI http://localhost:3000 -> model deepseek-coder:6.7b-instruct
+./scripts/coder-setup.sh
+# or: ./scripts/setup.sh --mode coder
 ```
 
-- Official: https://github.com/deepseek-ai/DeepSeek-Coder
-- Library: https://huggingface.co/deepseek-ai/deepseek-coder-6.7b-instruct
-- Integrations (client side): https://github.com/deepseek-ai/awesome-deepseek-integration
-
-Details: `configs/deepseek-coder.md`
+Model: `deepseek-coder:6.7b-instruct` (~3.8 GB). Details:
+`configs/deepseek-coder.md`.
 
 ---
 
-## 🧱 Project Structure
+## 🧱 Project structure
 
 ```text
 DeepSeek-v4-1-Flash-Free/
-├─ docker-compose.yml          # Ollama + Open WebUI (Docker-only, fixed)
-├─ .env.example                # placeholders
+├─ docker-compose.yml            # Ollama + Open WebUI (safe defaults)
+├─ docker-compose.local.yml      # local high-end PC tuning
+├─ docker-compose.gpu.yml        # NVIDIA GPU reservation
+├─ .env.example                  # every option, documented
+├─ install.sh / install.ps1      # thin one-command wrappers
 ├─ configs/
-│  ├─ tunnel-ready.yml         # Cloudflare Tunnel ready
-│  ├─ r2-ready.env.example     # R2 ready
-│  ├─ opencode.json.example    # OpenCode config
-│  └─ openwebui.yaml.example
-├─ cloudflare/
-│  ├─ config.yml.example
-│  └─ README.md
-├─ scripts/
-│  ├─ setup.sh                 # one-click, bugs-fixed
-│  ├─ backup-r2.sh
-│  ├─ restore-r2.sh
-│  ├─ quick-test.sh
-│  └─ push.sh
-├─ DeepSeek-V4.1-Flash_Free_Lifetime_Setup_Bangla_Guide.docx
-└─ README.md
+│  ├─ opencode.json.example      # OpenCode local
+│  ├─ opencode-cloud.json.example
+│  ├─ openwebui.env.example      # env-var reference
+│  ├─ nginx.conf.example         # WebUI only, no Ollama proxy
+│  ├─ tunnel-ready.yml
+│  ├─ rclone-r2.conf.example
+│  ├─ r2-ready.env.example
+│  └─ deepseek-coder.md
+├─ cloudflare/                   # tunnel guide + config example
+├─ colab/                        # demo notebook (8B only)
+├─ docs/
+│  ├─ SETUP-FLASH.md
+│  ├─ SETUP-CODER.md
+│  └─ SETUP-BANGLA.md
+└─ scripts/
+   ├─ common.sh                  # shared helpers
+   ├─ setup.sh / setup.ps1       # universal installer
+   ├─ local-setup.sh / .ps1      # local high-end PC
+   ├─ vps-setup.sh               # firewall + installer
+   ├─ coder-setup.sh
+   ├─ doctor.sh / doctor.ps1     # read-only diagnostics
+   ├─ quick-test.sh              # end-to-end smoke test
+   ├─ backup-r2.sh / restore-r2.sh
+   ├─ offline-download.sh
+   └─ push.sh
 ```
 
 ---
 
-## 🔐 Security & Privacy
+## 🔐 Security & privacy
 
-- UFW only 22, 3000, 11434
-- Open WebUI strong admin password + Cloudflare Access
-- R2 bucket **Private** — public link share koro na
-- OCI billing cap **$0**
-- Tunnel use korle 3000 port public khul-te hobe na
+- **Never expose port 11434.** Ollama has no authentication. The default bind is
+  `127.0.0.1`; keep it.
+- Open WebUI: create the admin account on first visit; set
+  `DEFAULT_USER_ROLE=pending` (default) so new accounts need approval.
+- Use Cloudflare Access in front of the public hostname for real privacy.
+- R2 bucket stays **private**; never share object URLs.
+- Set an OCI billing cap of $0 if you use Oracle.
+- `.env` is git-ignored. Never commit API keys or `WEBUI_SECRET_KEY`.
 
 ---
 
@@ -299,60 +378,105 @@ DeepSeek-v4-1-Flash-Free/
 
 | Symptom | Fix |
 |---|---|
-| `permission denied docker` | `sg docker -c "docker ps"` use koro, or re-login |
-| `port 11434 already in use` | Purono host Ollama kill koro: `sudo systemctl stop ollama` (Docker-only setup) |
-| Restore e model nai | `./scripts/restore-r2.sh` age `mkdir -p` kore — `.env` R2 keys check |
-| WebUI te model nai | `docker exec deepseek-ollama ollama pull deepseek-v4.1-flash` |
-| Tunnel 404 | Hostname `ai.yourdomain.com` → `http://localhost:3000` check |
+| `permission denied` on Docker | `sudo usermod -aG docker $USER`, log out/in. Scripts fall back to `sudo`. |
+| `port 11434 already in use` | Stop host Ollama: `sudo systemctl stop ollama` (the stack uses Docker). |
+| Model not in WebUI | `docker exec deepseek-ollama ollama list` then pull it: `docker exec deepseek-ollama ollama pull deepseek-r1:8b` |
+| WebUI keeps logging out | `WEBUI_SECRET_KEY` is empty. Run `./scripts/setup.sh` again or set it in `.env`. |
+| WebUI not healthy | `docker compose logs --tail 100 open-webui` |
+| Ollama OOM on flagship | You do not have 288 GB. Use `--mode lite` or `--mode api`. |
+| Tunnel 404 | Hostname must point to `http://localhost:3000`, not 11434. |
+| R2 backup fails | Check `rclone lsd r2:deepseek-backup` and that the token has Object Read & Write. |
+| Colab pull fails | Colab cannot run V4.1-Flash. Use `deepseek-r1:8b`. |
+| Everything weird | `./scripts/doctor.sh` |
 
 ---
 
 ## 🗓️ Changelog
 
 <details open>
-<summary><b>v1.0.1 — current</b></summary>
+<summary><b>v1.1.0 — current</b></summary>
 
-- 🛠️ Bugfix: host vs container Ollama port conflict marattok, restore-guard, `sg docker`, arch-detect, CRLF fix
-- 🏷️ README tanzir-ai style (banner, badges, highlights, Bangla guide link)
+**Correctness fixes**
+
+- Removed the false "24 GB runs V4.1-Flash" claim. Documented real sizes
+  (IQ1_M 259 GB, Q4 414 GB).
+- `ollama pull deepseek-v4.1-flash` no longer used: Ollama only ships `:cloud`
+  tags for it. Free tier now pulls `deepseek-r1:8b`; flagship uses IQ1_M/Q4.
+- Fixed the R2 10 GB claim: it cannot hold the flagship model.
+- Colab notebook no longer pulls a non-existent model or leaks a background
+  process; runs an 8B model that fits a T4.
+
+**Security fixes**
+
+- Ollama is bound to `127.0.0.1` by default.
+- `vps-setup.sh` no longer opens 11434 to the internet.
+- Nginx no longer proxies the unauthenticated Ollama API.
+- `DEFAULT_USER_ROLE=pending` so signups need admin approval.
+- `WEBUI_SECRET_KEY` is generated and persisted.
+- Local mode binds Open WebUI to `127.0.0.1` by default (LAN is opt-in).
+
+**Reliability fixes**
+
+- Health checks use `ollama list` and the WebUI `/health` endpoint.
+- `.env` is actually wired into compose (ports, model, secret, API endpoint).
+- `sg docker` removed; falls back to `sudo` correctly.
+- `set -Eeuo pipefail` everywhere; no more silent failures.
+- Backup stops containers for a consistent copy; restore uses `copy`, not
+  `sync`, and never touches host paths.
+- Offline script produces a real restorable archive.
+- `quick-test.sh` and `doctor.sh` added.
+- OpenCode config updated to the current `providers.settings` schema.
+- Cloudflare config files use a valid `tunnel` UUID + `credentials-file`.
+- Compose GPU/local overlays added; CRLF and `.gitignore` cleaned up.
 
 </details>
+
+<details>
+<summary><b>v1.0.1</b></summary>
+
+- Host vs container Ollama port conflict, restore guard, `sg docker`,
+  arch-detect, CRLF fix.
+
+</details>
+
 <details>
 <summary><b>v1.0.0</b></summary>
 
-- Initial public release — Ollama + Oracle + Open WebUI + Tunnel + R2 backup
+- Initial public release.
 
 </details>
 
 ---
 
-## 💖 Support the Developer
+## 💖 Support the developer
 
 <div align="center">
 
 [![Support on SupportKori](https://img.shields.io/badge/💖_SUPPORT_THE_DEVELOPER-SupportKori-FFDD00?style=for-the-badge&labelColor=111827)](https://www.supportkori.com/tanzirahmed)
 
-**DeepSeek v4.1 Flash & Coder by Tanzir Ahmed** · *Zero Investment • Lifetime Use*
+**DeepSeek Free by Tanzir Ahmed** · *Zero Investment • Lifetime Use*
 
 </div>
 
 ---
 
-## 🙏 Development Credit & Legal Notice
+## 🙏 Development credit & legal notice
 
-- **Model:** @DeepSeek / @deepseek-ai — [`DeepSeek-V4.1-Flash`](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash) · [DeepSeek News](https://www.deepseek.com/en/news/deepseek-v4-1-flash/) · [Ollama](https://ollama.com/library/deepseek-v4.1-flash) — weights copyright & trademark © DeepSeek. This repo is setup only, does NOT own or redistribute the model.
+- **Model:** © DeepSeek / @deepseek-ai — [`DeepSeek-V4.1-Flash`](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash) · [News](https://www.deepseek.com/en/news/deepseek-v4-1-flash/) · [Ollama](https://ollama.com/library/deepseek-v4.1-flash). Weights are **not** included or redistributed by this repo.
 - **This repo (scripts/docs):** © Tanzir Ahmed — MIT (see `LICENSE`, `NOTICE.md`).
-- **Others:** Ollama, Open WebUI, Cloudflare, Oracle — their own licenses/trademarks apply.
-- **Copyright / ICT law:** Official source theke download, no copied source/logo beyond fair-use credit. Bangladesh ICT Act 2006 / Cyber Security Act 2023 ba DMCA violation kore na. Details: [`NOTICE.md`](./NOTICE.md).
+- **Others:** Ollama, Open WebUI, Cloudflare, Oracle — their own licenses/trademarks.
+- **Copyright / ICT law:** downloads happen from official sources; no copied
+  source, logo, or paywall bypass. Details: [`NOTICE.md`](./NOTICE.md).
 
 ---
 
 ## 📄 License
 
-**MIT License** — free to use, modify, and distribute.
+**MIT** — free to use, modify, and distribute.
 
 <div align="center">
 
-© 2026 Tanzir Ahmed — **DeepSeek v4.1 Flash & Coder**
+© 2026 Tanzir Ahmed — **DeepSeek Free**
 
 [Repository](https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free) · [Issues](https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free/issues) · [Support](https://www.supportkori.com/tanzirahmed)
 

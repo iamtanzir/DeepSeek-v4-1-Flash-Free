@@ -1,25 +1,42 @@
 # Option 2 — DeepSeek Coder Free Setup
 
-**Choice koro:** code likha, debug, completion — same free stack.
+Same stack, code-focused model. Runs on 8 GB RAM and on the Oracle Always Free
+24 GB ARM VM.
 
-## Copy-paste (Oracle/VPS)
+## Copy-paste
 
 ```bash
 git clone https://github.com/iamtanzir/DeepSeek-v4-1-Flash-Free.git
 cd DeepSeek-v4-1-Flash-Free
 chmod +x scripts/*.sh
-./scripts/coder-setup.sh deepseek-coder:6.7b-instruct
-# WebUI: http://YOUR_VM_IP:3000 -> model deepseek-coder:6.7b-instruct
+./scripts/coder-setup.sh
 ```
 
-Test:
+Or:
+
 ```bash
-./scripts/quick-test.sh
-# MODEL=deepseek-coder:6.7b-instruct
+./scripts/setup.sh --mode coder
 ```
 
-Official:
+Open http://YOUR_VM_IP:3000 and pick `deepseek-coder:6.7b-instruct`.
+
+## Test
+
+```bash
+MODEL=deepseek-coder:6.7b-instruct ./scripts/quick-test.sh
+```
+
+## Sizes
+
+| Tag | Download | RAM |
+|---|---|---|
+| `deepseek-coder:1.3b` | ~0.8 GB | 2 GB |
+| `deepseek-coder:6.7b-instruct` | ~3.8 GB | 8 GB |
+| `deepseek-coder:33b` | ~19 GB | 32 GB+ |
+
+## Official links
+
 - https://github.com/deepseek-ai/DeepSeek-Coder
 - https://huggingface.co/deepseek-ai/deepseek-coder-6.7b-instruct
 - https://ollama.com/library/deepseek-coder
-- Integrations: https://github.com/deepseek-ai/awesome-deepseek-integration
+- https://github.com/deepseek-ai/awesome-deepseek-integration
